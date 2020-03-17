@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>upload</title>
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap-v4.4.1.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>文件上传</h2>
+        <!-- <form action="upload.php" method="post" enctype="multipart/form-data"> -->
+            <input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
+            <div class="form-group">
+                <label for="my_file">身份证</label>
+                <input type="file" class="form-control-file" id="my_file" name="my_file" />
+                <small class="form-text text-muted">仅支持 png，JPG，gif 三种格式的图片</small>
+            </div>
+            <button type="button" class="btn btn-primary" id="upload_file">上传</button>
+        <!-- </form> -->
+    </div>
+    <script src="../assets/js/jquery-v3.4.1.min.js"></script>
+    <script>
+    $(function() {
+        $('#upload_file').on('click', function() {
+            var formData = new FormData();
+            var files = $("#my_file")[0].files;
+            formData.append('my_file', files[0]);
+
+            // for (var i = 0; i < files.length; i++) {
+            //     formData.append('my_file[]', files[i]);
+            // }
+
+            $.ajax({
+                url: './upload.php',
+                type: 'post',
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function(resp) {
+                    alert(resp.message);
+                }
+            })
+        })
+    })
+    </script>
+</body>
+
+</html>
