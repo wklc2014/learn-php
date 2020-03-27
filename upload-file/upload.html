@@ -5,26 +5,29 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>upload</title>
-    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap-v4.4.1.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/uikit-v3.2.2/css/uikit.min.css">
 </head>
 
 <body>
-    <div class="container">
+    <div class="uk-container" style="padding-top: 16px;">
         <h2>文件上传</h2>
-        <!-- <form action="upload.php" method="post" enctype="multipart/form-data"> -->
+        <form class="uk-form-stacked">
             <input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
-            <div class="form-group">
-                <label for="my_file">身份证</label>
-                <input type="file" class="form-control-file" id="my_file" name="my_file" />
-                <small class="form-text text-muted">仅支持 png，JPG，gif 三种格式的图片</small>
+            <div class="uk-margin" uk-margin>
+                <div uk-form-custom="target: true">
+                    <input type="file" name="my_file" id="my_file">
+                    <input class="uk-input uk-form-width-medium" type="text" placeholder="请选择文件" disabled>
+                </div>
+                <button class="uk-button uk-button-default" type="submit" id="upload_file">上传</button>
             </div>
-            <button type="button" class="btn btn-primary" id="upload_file">上传</button>
-        <!-- </form> -->
+        </form>
     </div>
-    <script src="../assets/js/jquery-v3.4.1.min.js"></script>
+    <script src="../assets/jquery/v3.4.1/jquery.min.js"></script>
+    <script src="../assets/uikit-v3.2.2/js/uikit.min.js"></script>
     <script>
     $(function() {
-        $('#upload_file').on('click', function() {
+        $('#upload_file').on('click', function(e) {
+            e.preventDefault();
             var formData = new FormData();
             var files = $("#my_file")[0].files;
             formData.append('my_file', files[0]);
@@ -41,6 +44,7 @@
                 processData: false,
                 success: function(resp) {
                     alert(resp.message);
+                    $("#my_file").val("").siblings('input[type=text]').val("");
                 }
             })
         })

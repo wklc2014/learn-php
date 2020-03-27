@@ -6,6 +6,8 @@
 
   $uploadFile = new UploadFile($files);
 
+  // var_dump($uploadFile);
+
   $response = array(
     'status'=> $uploadFile->upload_status,
     'message'=> $uploadFile->upload_message,
@@ -20,7 +22,6 @@
   //     'size' => $files['size'][$i],
   //     'tmp_name' => $files['tmp_name'][$i],
   //   );
-
 
   //   $response['status'] = $uploadFile->upload_status;
   //   $response['message'] = $uploadFile->upload_message;
