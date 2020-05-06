@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<books>
+  <book>
+    <name>张三</name>
+    <city>绵阳</city>
+    <sex>男</sex>
+    <time>2016-07-12</time>
+  </book>
+  <book>
+    <name>李四</name>
+    <city province="四川省">成都</city>
+    <sex>女</sex>
+    <time>2019-07-12</time>
+  </book>
+  <book>
+    <name>赵六</name>
+    <city>乐山</city>
+    <sex>男</sex>
+    <time>2020-03-12</time>
+  </book>
+</books>

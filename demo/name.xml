@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book>
+  <name>张三</name>
+  <city province="四川省">绵阳</city>
+  <sex>男</sex>
+  <time>2016-07-12</time>
+</book>
